@@ -69,14 +69,11 @@ void DISPATCHER::findAvailableCPU(Job* j)
 {
     if(j->comp_site == "") return;
     auto site = sg4::Engine::get_instance()->netzone_by_name_or_null(j->comp_site);
-    auto cpus = site->get_all_hosts();
+    auto cpus = CGSim::get_site_manager()->get_site(j->comp_site)->cpus;
 
     for(const auto& cpu: cpus)
     {
-        if(cpu->get_name().find("JOB-SERVER_cpu") != std::string::npos) continue;
-        if(cpu->get_name().find("_communication_server") != std::string::npos) continue;
-        if(cpu->extension<HostExtensions>()->get_cores_available() < j->cores) continue;
-
+        if(CGSim::get_site_manager()->get_cores_available(cpu) < j->cores) continue;
         auto d = cpu->get_disks()[0]; //Change later
 
         j->disk           =  d->get_name();

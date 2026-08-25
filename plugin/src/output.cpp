@@ -4,7 +4,7 @@
 void OUTPUT::initialize()
 {
     if (initialized) return;
-    std::string file_name = platform->get_property("output_file");
+    std::string file_name = CGSim::get_site_manager()->get_custom_parameter("output_file");
     if (std::filesystem::exists(file_name)) std::filesystem::remove(file_name);
 
     if (sqlite3_open(file_name.c_str(), &db) != SQLITE_OK) {
@@ -44,7 +44,7 @@ void OUTPUT::insert_event(
                   const std::string& event,
                   const std::string& state,
                   const std::string& job_id,
-                  const std::string& status,
+		  CGSim::STATUS status,
                   double time,
                   const std::string& payload)
 {
@@ -56,10 +56,11 @@ void OUTPUT::insert_event(
     if (rc != SQLITE_OK)
         throw std::runtime_error(std::string("SQLite prepare failed: ") + sqlite3_errmsg(db));
 
+    const std::string& string_status = CGSim::get_site_manager()->get_status_string(status);
     sqlite3_bind_text(stmt, 1, event.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_text(stmt, 2, state.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_text(stmt, 3, job_id.c_str(), -1, SQLITE_TRANSIENT);
-    sqlite3_bind_text(stmt, 4, status.c_str(), -1, SQLITE_TRANSIENT);
+    sqlite3_bind_text(stmt, 4, string_status.c_str(), -1, SQLITE_TRANSIENT);
     sqlite3_bind_double(stmt, 5, time);
     sqlite3_bind_text(stmt, 6, payload.c_str(), -1, SQLITE_TRANSIENT);
 
@@ -308,7 +309,7 @@ void OUTPUT::onFileWriteEnd(Job* job,
 }
 
 
-void OUTPUT::onBackGroundFileTransferStart(const std::string& filename, 
+void OUTPUT::onUserFileTransferStart(const std::string& filename, 
     const unsigned long long filesize, simgrid::s4u::Comm const& co, 
     const std::string& src_site, const std::string& dst_site, const std::string& policy_name)
 {
@@ -329,16 +330,16 @@ void OUTPUT::onBackGroundFileTransferStart(const std::string& filename,
         {"grid_storage_util", calculate_grid_storage_util()}
     };
 
-    insert_event("BackGroundFileTransfer", "Started",
+    insert_event("UserFileTransfer", "Started",
                  "",
-                 "",
+                 CGSim::STATUS::NONE,
                  co.get_start_time(),
                  payload.dump());
 
 
 }
 
-void OUTPUT::onBackGroundFileTransferEnd(const std::string& filename, 
+void OUTPUT::onUserFileTransferEnd(const std::string& filename, 
     const unsigned long long filesize, simgrid::s4u::Comm const& co, 
     const std::string& src_site, const std::string& dst_site, const std::string& policy_name)
 {
@@ -359,9 +360,9 @@ void OUTPUT::onBackGroundFileTransferEnd(const std::string& filename,
         {"grid_storage_util", calculate_grid_storage_util()}
     };
 
-    insert_event("BackGroundFileTransfer", "Finished",
+    insert_event("UserFileTransfer", "Finished",
                  "",
-                 "",
+                 CGSim::STATUS::NONE,
                  co.get_finish_time(),
                  payload.dump());
 
@@ -378,28 +379,12 @@ sg4::Link* OUTPUT::get_link(const std::string& src_site, const std::string& dst_
 
 double OUTPUT::calculate_grid_cpu_util()
 {
-    double cores_used = 0;
-    double total_cores = std::stoul(platform->get_property("grid_cores"));
-    for (const auto& host : sg4::Engine::get_instance()->get_all_hosts()) 
-    {
-        if(host->get_name().find("JOB-SERVER_cpu") != std::string::npos) continue;
-        if(host->get_name().find("_communication") != std::string::npos) continue;
-        cores_used += host->extension<HostExtensions>()->get_cores_used();
-    }
-    return cores_used/total_cores;
+  return CGSim::get_site_manager()->get_grid_cpu_utilization();
 }
 
 double OUTPUT::calculate_site_cpu_util(const std::string& site_name)
 {
-    auto site = sg4::Engine::get_instance()->netzone_by_name_or_null(site_name);
-    double total_cores = std::stoul(site->get_property("total_cores"));
-    double cores_used = 0;
-    for (const auto& host : site->get_all_hosts()) 
-    {
-        if(host->get_name().find("_communication") != std::string::npos) continue;
-        cores_used += host->extension<HostExtensions>()->get_cores_used();
-    }
-    return cores_used/total_cores;
+  return CGSim::get_site_manager()->get_site_cpu_utilization(site_name);
 }
 
 double OUTPUT::calculate_grid_storage_util()

@@ -20,12 +20,12 @@ public:
     void initialize();
     void createEventsTable();
     void insert_event(
-                  const std::string& event,
-                  const std::string& state,
-                  const std::string& job_id,
-                  const std::string& status,
-                  double time,
-                  const std::string& payload);
+                  const std::string&  event,
+                  const std::string&  state,
+                  const std::string&  job_id,
+                  const CGSim::STATUS status,
+                  double              time,
+                  const std::string&  payload);
 
 
     void onSimulationStart();
@@ -41,8 +41,8 @@ public:
     void onFileWriteStart(Job* job, const std::string& filename, const unsigned long long filesize, simgrid::s4u::Io const& io);
     void onFileWriteEnd(Job* job, const std::string& filename, const unsigned long long filesize, simgrid::s4u::Io const& io);
 
-    void onBackGroundFileTransferStart(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name);
-    void onBackGroundFileTransferEnd(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name);
+    void onUserFileTransferStart(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name);
+    void onUserFileTransferEnd(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name);
 
 
     double calculate_grid_cpu_util();

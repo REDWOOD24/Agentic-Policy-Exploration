@@ -3,16 +3,16 @@ from openai import OpenAI, OpenAIError
 from mcp_tools import most_data_located
 import json
 
-api_key = os.getenv("OPENROUTER_API_KEY")
+api_key = os.getenv("BNL_API_KEY")
 if not api_key:
-    raise RuntimeError("OPENROUTER_API_KEY is not set.")
+    raise RuntimeError("BNL_API_KEY is not set.")
 
 client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
+    base_url="https://inference0-api.sdcc.bnl.gov/v1",
     api_key=api_key,
 )
 
-model="inclusionai/ling-3.0-flash:free"
+model="gpt-oss-120b"
 
 SYSTEM_PROMPT = """
 You are a grid workload-management scheduling agent.

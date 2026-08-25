@@ -1,10 +1,10 @@
-#include "DispatcherPlugin.h"
+#include "plugin.h"
 #include "dispatcher.h"
 #include "workload_manager.h"
 #include "output.h"
 //#include "policy.h"
 
-class AgenticPolicyExplorationPlugin : public DispatcherPlugin {
+class AgenticPolicyExplorationPlugin : public CGSim::Plugin {
 
 public:
     AgenticPolicyExplorationPlugin();
@@ -23,8 +23,8 @@ public:
     virtual void onFileReadEnd(Job* job, const std::string& filename, const unsigned long long filesize, simgrid::s4u::Io const& io) final override;
     virtual void onFileWriteStart(Job* job, const std::string& filename, const unsigned long long filesize, simgrid::s4u::Io const& io) final override;
     virtual void onFileWriteEnd(Job* job, const std::string& filename, const unsigned long long filesize, simgrid::s4u::Io const& io) final override;
-    virtual void onBackGroundFileTransferStart(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name) final override;
-    virtual void onBackGroundFileTransferEnd(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name) final override;
+    virtual void onUserFileTransferStart(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name) final override;
+    virtual void onUserFileTransferEnd(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name) final override;
 
 
     virtual void onFileRequest(Job* j, std::string filename, long long filesize, std::unordered_set<std::string> file_locations, std::string& source_site, CGSim::FileTransferDecisionMode& mode) final override;
@@ -92,14 +92,14 @@ void AgenticPolicyExplorationPlugin::onFileTransferEnd(Job* job, const std::stri
    ou->onFileTransferEnd(job,filename, filesize, co,src_site,dst_site);
 }
 
-void AgenticPolicyExplorationPlugin::onBackGroundFileTransferStart(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name)
+void AgenticPolicyExplorationPlugin::onUserFileTransferStart(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name)
 {
-   ou->onBackGroundFileTransferStart(filename, filesize, co,src_site,dst_site,policy_name);
+   ou->onUserFileTransferStart(filename, filesize, co,src_site,dst_site,policy_name);
 }
 
-void AgenticPolicyExplorationPlugin::onBackGroundFileTransferEnd(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name)
+void AgenticPolicyExplorationPlugin::onUserFileTransferEnd(const std::string& filename, const unsigned long long filesize, simgrid::s4u::Comm const& co, const std::string& src_site, const std::string& dst_site, const std::string& policy_name)
 {
-   ou->onBackGroundFileTransferEnd(filename, filesize, co,src_site,dst_site,policy_name);
+   ou->onUserFileTransferEnd(filename, filesize, co,src_site,dst_site,policy_name);
 }
 
 void AgenticPolicyExplorationPlugin::onFileReadStart(Job* job, const std::string& filename, const unsigned long long filesize, simgrid::s4u::Io const& io)
