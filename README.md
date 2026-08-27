@@ -38,7 +38,7 @@ The provided simulation configuration models **30 sites**, named `Site0` through
 ┌──────────────────────────────┐
 │       Python AI Agent        │
 │                              │
-│  OpenRouter-compatible LLM   │
+│    BNL-API-compatible LLM    │
 │             │                │
 │             ▼                │
 │   most_data_located tool     │
@@ -86,7 +86,7 @@ Agentic-Policy-Exploration/
 
 * Python 3.10 or newer
 * `openai` Python package
-* An OpenRouter API key
+* A BNL API key
 * Network access to the configured model provider
 
 ### C++
@@ -131,17 +131,12 @@ Install the Python dependency:
 pip install openai
 ```
 
-Set your OpenRouter API key:
+Set your BNL API key:
 
 ```bash
-export OPENROUTER_API_KEY="your-api-key"
+export BNL_API_KEY="your-api-key"
 ```
 
-On Windows PowerShell:
-
-```powershell
-$env:OPENROUTER_API_KEY="your-api-key"
-```
 
 ### 3. Build the dispatcher plugin
 
@@ -327,10 +322,10 @@ The model is configured in `agent/agent.py`:
 model = "inclusionai/ling-3.0-flash:free"
 ```
 
-To use another OpenRouter-compatible model, replace that value:
+To use another BNL-API-compatible model, replace that value:
 
 ```python
-model = "provider/model-name"
+model = "model-name"
 ```
 
 Choose a model that reliably supports function or tool calling and structured JSON output.
@@ -384,12 +379,12 @@ Possible experiments include:
 
 ## Troubleshooting
 
-### `OPENROUTER_API_KEY is not set`
+### `BNL_API_KEY is not set`
 
 Export the key before starting the agent:
 
 ```bash
-export OPENROUTER_API_KEY="your-api-key"
+export BNL_API_KEY="your-api-key"
 ```
 
 ### Agent remains at “waiting for communication”
