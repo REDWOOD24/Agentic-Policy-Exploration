@@ -1,96 +1,80 @@
 #include "dispatcher.h"
+#include "units_parser.h"
+#include <algorithm>
 
-double DISPATCHER::storage_needed(std::unordered_map<std::string, long long>& files) 
+double DISPATCHER::storage_needed(const std::unordered_map<std::string,std::string>& files)
 {
     long long sum = 0;
-    for (const auto& [_, value] : files)
-        sum += value;
+    for (const auto& [_,v] : files) sum += CGSim::Utilities::parse_units_size(v);
     return sum;
 }
 
-std::string DISPATCHER::most_data_located(Job* j)
+std::string DISPATCHER::most_data_located(CGSim::Job* j)
 {
-  const auto& files = j->input_files_sizes_locations;
-  const auto needed = storage_needed(j->output_files);
+    auto files = j->get_input_files();
+    auto needed = storage_needed(j->get_output_files());
 
-  std::unordered_map<std::string, std::size_t> counts;
-  for (const auto& [name, file] : files) for (const auto& site : file.second) ++counts[site];
+    std::unordered_map<std::string,std::size_t> counts;
+    for (const auto& filename : files)
+      for (const auto& site : fm->request_file(filename)->get_locations()) ++counts[site];
 
-  while (!counts.empty()) 
-  {
-    const auto best = std::max_element(counts.begin(), counts.end(),[](const auto& a, const auto& b) {return a.second < b.second;});
-    if (CGSim::get_file_manager()->request_remaining_site_storage(best->first) >= needed)
-    {std::cout << "best is: " + best->first << std::endl; return best->first;}
-    counts.erase(best);
-  }
+    while (!counts.empty()) {
+        auto best = std::max_element(counts.begin(),counts.end(),
+            [](const auto& a,const auto& b){ return a.second < b.second; });
 
-  throw std::runtime_error("Could not find most data located for given job");
-
+        if (rm->get_site(best->first)->get_available_storage() >= needed) {
+            return best->first;
+        }
+        counts.erase(best);
+    }
+    throw std::runtime_error("Could not find most data located for given job");
 }
 
-void DISPATCHER::findBestSite(Job* j)
+void DISPATCHER::findBestSite(CGSim::Job* j)
 {
-  socket.sendJson
-  ({
-    {"request_type","assign_job"},
-    {"job_id",j->jobid},
-    {"expect_reply",true}
-  });
-  
-  while(true)
-  {
-    SocketClient::json message;
-    socket.receiveJson(message);
-    std::string decision;
-    if (message.contains("site_decision") && message["site_decision"].is_string())
-    {j->comp_site = message["site_decision"].get<std::string>(); break;}
+    socket.sendJson({
+        {"request_type","assign_job"},
+        {"job_id",j->get_id()},
+        {"expect_reply",true}
+    });
 
-    if(message["request_type"] == "tool")
-    {
-      if(message["tool_type"] == "most_data_located")
-      {
-        auto result = most_data_located(j);
-        //std::cout << result << std::endl;
-        socket.sendJson
-        ({
-          {"response_type","tool"},
-          {"tool_result",result},
-          {"expect_reply",true}
-        });
-      }
-      else throw std::runtime_error("Currently suppported tools are {'most_data_located'}");
-    }  
-  }
-   
+    while (true) {
+        SocketClient::json message;
+        socket.receiveJson(message);
+
+        if (message.contains("site_decision") && message["site_decision"].is_string()) {
+            j->set_site(message["site_decision"].get<std::string>());
+            break;
+        }
+
+        if (message["request_type"] == "tool") {
+            if (message["tool_type"] == "most_data_located")
+                socket.sendJson({
+                    {"response_type","tool"},
+                    {"tool_result",most_data_located(j)},
+                    {"expect_reply",true}
+                });
+            else throw std::runtime_error("Currently suppported tools are {'most_data_located'}");
+        }
+    }
 }
 
-
-void DISPATCHER::findAvailableCPU(Job* j)
+void DISPATCHER::findAvailableCPU(CGSim::Job* j)
 {
-    if(j->comp_site == "") return;
-    auto site = sg4::Engine::get_instance()->netzone_by_name_or_null(j->comp_site);
-    auto cpus = CGSim::get_site_manager()->get_site(j->comp_site)->cpus;
+    if (j->get_site().empty()) return;
 
-    for(const auto& cpu: cpus)
-    {
-        if(CGSim::get_site_manager()->get_cores_available(cpu) < j->cores) continue;
-        auto d = cpu->get_disks()[0]; //Change later
+    auto* site = CGSim::GlobalManagers::get_resource_manager()->get_site(j->get_site());
 
-        j->disk           =  d->get_name();
-        j->disk_read_bw   =  d->get_read_bandwidth();
-        j->disk_write_bw  =  d->get_write_bandwidth();
-
-        j->comp_host          =  cpu->get_name();
-        j->comp_host_speed    =  cpu->get_speed();
-
+    for (auto* cpu : site->get_cpus()) {
+        if (cpu->get_cores_available() < j->get_cores()) continue;
+        j->set_cpu(cpu->get_name());
+        j->set_disk(cpu->get_disks()[0]->get_name());
         return;
     }
 }
 
-Job* DISPATCHER::assignJob(Job* job)
+void DISPATCHER::assignJob(CGSim::Job* job)
 {
-  findBestSite(job);
-  findAvailableCPU(job);
-  return job;
+    findBestSite(job);
+    findAvailableCPU(job);
 }
-

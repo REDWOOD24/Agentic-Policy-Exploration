@@ -1,20 +1,20 @@
 {
   "Site0": {
+    "storage": "12866626628440",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12866626628440",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE0_C0",
+        "ram": "4GB",
         "units": 1711,
         "speed": 20000000.0,
         "cores": 20,
         "BW_CPU": "3142GBps",
         "LAT_CPU": "78ns",
         "properties": [
-          {
-            "ram": "4096GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -40,15 +40,15 @@
         ]
       },
       {
+        "name": "SITE0_C1",
+        "ram": "4GB",
         "units": 613,
         "speed": 28000000.0,
         "cores": 28,
         "BW_CPU": "2889GBps",
         "LAT_CPU": "47ns",
         "properties": [
-          {
-            "ram": "2048GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -4078,21 +4078,21 @@
     ]
   },
   "Site1": {
+    "storage": "12613452832840",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12613452832840",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE1_C0",
+        "ram": "4GB",
         "units": 1089,
         "speed": 22000000.0,
         "cores": 36,
         "BW_CPU": "2956GBps",
         "LAT_CPU": "48ns",
         "properties": [
-          {
-            "ram": "512GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -8122,21 +8122,21 @@
     ]
   },
   "Site2": {
+    "storage": "12846648284300",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12846648284300",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE2_C0",
+        "ram": "4GB",
         "units": 845,
         "speed": 20000000.0,
         "cores": 16,
         "BW_CPU": "2825GBps",
         "LAT_CPU": "65ns",
         "properties": [
-          {
-            "ram": "2048GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -12166,21 +12166,21 @@
     ]
   },
   "Site3": {
+    "storage": "12620458721150",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12620458721150",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE3_C0",
+        "ram": "4GB",
         "units": 242,
         "speed": 18000000.0,
         "cores": 28,
         "BW_CPU": "3562GBps",
         "LAT_CPU": "98ns",
         "properties": [
-          {
-            "ram": "3072GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -12206,15 +12206,15 @@
         ]
       },
       {
+        "name": "SITE3_C1",
+        "ram": "4GB",
         "units": 118,
         "speed": 26000000.0,
         "cores": 48,
         "BW_CPU": "3769GBps",
         "LAT_CPU": "98ns",
         "properties": [
-          {
-            "ram": "8192GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -12240,15 +12240,15 @@
         ]
       },
       {
+        "name": "SITE3_C2",
+        "ram": "4GB",
         "units": 368,
         "speed": 24000000.0,
         "cores": 30,
         "BW_CPU": "3564GBps",
         "LAT_CPU": "60ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -16278,21 +16278,21 @@
     ]
   },
   "Site4": {
+    "storage": "12996168029240",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12996168029240",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE4_C0",
+        "ram": "4GB",
         "units": 422,
         "speed": 18000000.0,
         "cores": 20,
         "BW_CPU": "3720GBps",
         "LAT_CPU": "50ns",
         "properties": [
-          {
-            "ram": "4096GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -20322,21 +20322,21 @@
     ]
   },
   "Site5": {
+    "storage": "12964244508030",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12964244508030",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE5_C0",
+        "ram": "4GB",
         "units": 1069,
         "speed": 28000000.0,
         "cores": 24,
         "BW_CPU": "2063GBps",
         "LAT_CPU": "86ns",
         "properties": [
-          {
-            "ram": "8192GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -24366,21 +24366,21 @@
     ]
   },
   "Site6": {
+    "storage": "12792813500200",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12792813500200",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE6_C0",
+        "ram": "4GB",
         "units": 328,
         "speed": 30000000.0,
         "cores": 16,
         "BW_CPU": "3215GBps",
         "LAT_CPU": "45ns",
         "properties": [
-          {
-            "ram": "2048GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -24406,15 +24406,15 @@
         ]
       },
       {
+        "name": "SITE6_C1",
+        "ram": "4GB",
         "units": 107,
         "speed": 32000000.0,
         "cores": 16,
         "BW_CPU": "2626GBps",
         "LAT_CPU": "85ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -28444,21 +28444,21 @@
     ]
   },
   "Site7": {
+    "storage": "13133466713160",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "13133466713160",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE7_C0",
+        "ram": "4GB",
         "units": 1093,
         "speed": 20000000.0,
         "cores": 64,
         "BW_CPU": "3984GBps",
         "LAT_CPU": "93ns",
         "properties": [
-          {
-            "ram": "3072GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -28484,15 +28484,15 @@
         ]
       },
       {
+        "name": "SITE7_C1",
+        "ram": "4GB",
         "units": 1219,
         "speed": 28000000.0,
         "cores": 16,
         "BW_CPU": "3886GBps",
         "LAT_CPU": "95ns",
         "properties": [
-          {
-            "ram": "2048GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -28518,15 +28518,15 @@
         ]
       },
       {
+        "name": "SITE7_C2",
+        "ram": "4GB",
         "units": 1414,
         "speed": 28000000.0,
         "cores": 24,
         "BW_CPU": "3335GBps",
         "LAT_CPU": "63ns",
         "properties": [
-          {
-            "ram": "2048GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -32556,21 +32556,21 @@
     ]
   },
   "Site8": {
+    "storage": "12831134875900",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12831134875900",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE8_C0",
+        "ram": "4GB",
         "units": 207,
         "speed": 18000000.0,
         "cores": 30,
         "BW_CPU": "3086GBps",
         "LAT_CPU": "99ns",
         "properties": [
-          {
-            "ram": "8192GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -36600,21 +36600,21 @@
     ]
   },
   "Site9": {
+    "storage": "12902889122010",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12902889122010",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE9_C0",
+        "ram": "4GB",
         "units": 1339,
         "speed": 22000000.0,
         "cores": 24,
         "BW_CPU": "2736GBps",
         "LAT_CPU": "70ns",
         "properties": [
-          {
-            "ram": "4096GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -40644,21 +40644,21 @@
     ]
   },
   "Site10": {
+    "storage": "13128301528770",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "13128301528770",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE10_C0",
+        "ram": "4GB",
         "units": 645,
         "speed": 24000000.0,
         "cores": 32,
         "BW_CPU": "2219GBps",
         "LAT_CPU": "69ns",
         "properties": [
-          {
-            "ram": "1024GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -40684,15 +40684,15 @@
         ]
       },
       {
+        "name": "SITE10_C1",
+        "ram": "4GB",
         "units": 874,
         "speed": 30000000.0,
         "cores": 36,
         "BW_CPU": "2795GBps",
         "LAT_CPU": "64ns",
         "properties": [
-          {
-            "ram": "8192GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -40718,15 +40718,15 @@
         ]
       },
       {
+        "name": "SITE10_C2",
+        "ram": "4GB",
         "units": 1015,
         "speed": 30000000.0,
         "cores": 40,
         "BW_CPU": "2322GBps",
         "LAT_CPU": "49ns",
         "properties": [
-          {
-            "ram": "3072GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -40752,15 +40752,15 @@
         ]
       },
       {
+        "name": "SITE10_C3",
+        "ram": "4GB",
         "units": 1198,
         "speed": 24000000.0,
         "cores": 20,
         "BW_CPU": "3856GBps",
         "LAT_CPU": "47ns",
         "properties": [
-          {
-            "ram": "3072GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -44790,21 +44790,21 @@
     ]
   },
   "Site11": {
+    "storage": "12827367229300",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12827367229300",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE11_C0",
+        "ram": "4GB",
         "units": 1875,
         "speed": 28000000.0,
         "cores": 24,
         "BW_CPU": "3829GBps",
         "LAT_CPU": "88ns",
         "properties": [
-          {
-            "ram": "8192GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -48834,21 +48834,21 @@
     ]
   },
   "Site12": {
+    "storage": "12650856103330",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12650856103330",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE12_C0",
+        "ram": "4GB",
         "units": 1142,
         "speed": 22000000.0,
         "cores": 30,
         "BW_CPU": "2600GBps",
         "LAT_CPU": "58ns",
         "properties": [
-          {
-            "ram": "2048GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -48874,15 +48874,15 @@
         ]
       },
       {
+        "name": "SITE12_C1",
+        "ram": "4GB",
         "units": 1369,
         "speed": 30000000.0,
         "cores": 20,
         "BW_CPU": "1926GBps",
         "LAT_CPU": "65ns",
         "properties": [
-          {
-            "ram": "2048GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -48908,15 +48908,15 @@
         ]
       },
       {
+        "name": "SITE12_C2",
+        "ram": "4GB",
         "units": 1894,
         "speed": 32000000.0,
         "cores": 40,
         "BW_CPU": "1910GBps",
         "LAT_CPU": "81ns",
         "properties": [
-          {
-            "ram": "1024GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -52946,21 +52946,21 @@
     ]
   },
   "Site13": {
+    "storage": "12930521572360",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12930521572360",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE13_C0",
+        "ram": "4GB",
         "units": 652,
         "speed": 32000000.0,
         "cores": 32,
         "BW_CPU": "2276GBps",
         "LAT_CPU": "79ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -56990,21 +56990,21 @@
     ]
   },
   "Site14": {
+    "storage": "12657429274740",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12657429274740",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE14_C0",
+        "ram": "4GB",
         "units": 1396,
         "speed": 26000000.0,
         "cores": 30,
         "BW_CPU": "3888GBps",
         "LAT_CPU": "91ns",
         "properties": [
-          {
-            "ram": "4096GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -57030,15 +57030,15 @@
         ]
       },
       {
+        "name": "SITE14_C1",
+        "ram": "4GB",
         "units": 834,
         "speed": 26000000.0,
         "cores": 24,
         "BW_CPU": "3923GBps",
         "LAT_CPU": "75ns",
         "properties": [
-          {
-            "ram": "6144GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -57064,15 +57064,15 @@
         ]
       },
       {
+        "name": "SITE14_C2",
+        "ram": "4GB",
         "units": 1220,
         "speed": 24000000.0,
         "cores": 40,
         "BW_CPU": "3667GBps",
         "LAT_CPU": "90ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -57098,15 +57098,15 @@
         ]
       },
       {
+        "name": "SITE14_C3",
+        "ram": "4GB",
         "units": 1954,
         "speed": 18000000.0,
         "cores": 40,
         "BW_CPU": "3246GBps",
         "LAT_CPU": "87ns",
         "properties": [
-          {
-            "ram": "2048GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -61136,21 +61136,21 @@
     ]
   },
   "Site15": {
+    "storage": "12576489726260",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12576489726260",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE15_C0",
+        "ram": "4GB",
         "units": 1580,
         "speed": 18000000.0,
         "cores": 28,
         "BW_CPU": "2541GBps",
         "LAT_CPU": "47ns",
         "properties": [
-          {
-            "ram": "8192GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -61176,15 +61176,15 @@
         ]
       },
       {
+        "name": "SITE15_C1",
+        "ram": "4GB",
         "units": 846,
         "speed": 18000000.0,
         "cores": 28,
         "BW_CPU": "2914GBps",
         "LAT_CPU": "80ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -65214,21 +65214,21 @@
     ]
   },
   "Site16": {
+    "storage": "12692519500550",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12692519500550",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE16_C0",
+        "ram": "4GB",
         "units": 318,
         "speed": 20000000.0,
         "cores": 20,
         "BW_CPU": "2432GBps",
         "LAT_CPU": "72ns",
         "properties": [
-          {
-            "ram": "3072GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -65254,15 +65254,15 @@
         ]
       },
       {
+        "name": "SITE16_C1",
+        "ram": "4GB",
         "units": 492,
         "speed": 22000000.0,
         "cores": 28,
         "BW_CPU": "1899GBps",
         "LAT_CPU": "46ns",
         "properties": [
-          {
-            "ram": "1024GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -65288,15 +65288,15 @@
         ]
       },
       {
+        "name": "SITE16_C2",
+        "ram": "4GB",
         "units": 967,
         "speed": 24000000.0,
         "cores": 30,
         "BW_CPU": "3205GBps",
         "LAT_CPU": "86ns",
         "properties": [
-          {
-            "ram": "512GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -65322,15 +65322,15 @@
         ]
       },
       {
+        "name": "SITE16_C3",
+        "ram": "4GB",
         "units": 220,
         "speed": 18000000.0,
         "cores": 20,
         "BW_CPU": "3378GBps",
         "LAT_CPU": "60ns",
         "properties": [
-          {
-            "ram": "8192GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -69360,21 +69360,21 @@
     ]
   },
   "Site17": {
+    "storage": "12736919980940",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12736919980940",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE17_C0",
+        "ram": "4GB",
         "units": 253,
         "speed": 28000000.0,
         "cores": 64,
         "BW_CPU": "3311GBps",
         "LAT_CPU": "48ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -73404,21 +73404,21 @@
     ]
   },
   "Site18": {
+    "storage": "12454384755290",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12454384755290",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE18_C0",
+        "ram": "4GB",
         "units": 1658,
         "speed": 18000000.0,
         "cores": 28,
         "BW_CPU": "2231GBps",
         "LAT_CPU": "92ns",
         "properties": [
-          {
-            "ram": "3072GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -73444,15 +73444,15 @@
         ]
       },
       {
+        "name": "SITE18_C1",
+        "ram": "4GB",
         "units": 498,
         "speed": 18000000.0,
         "cores": 36,
         "BW_CPU": "3573GBps",
         "LAT_CPU": "53ns",
         "properties": [
-          {
-            "ram": "1024GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -77482,21 +77482,21 @@
     ]
   },
   "Site19": {
+    "storage": "12778519806570",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12778519806570",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE19_C0",
+        "ram": "4GB",
         "units": 1945,
         "speed": 28000000.0,
         "cores": 64,
         "BW_CPU": "3592GBps",
         "LAT_CPU": "87ns",
         "properties": [
-          {
-            "ram": "6144GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -77522,15 +77522,15 @@
         ]
       },
       {
+        "name": "SITE19_C1",
+        "ram": "4GB",
         "units": 498,
         "speed": 22000000.0,
         "cores": 40,
         "BW_CPU": "3550GBps",
         "LAT_CPU": "74ns",
         "properties": [
-          {
-            "ram": "8192GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -77556,15 +77556,15 @@
         ]
       },
       {
+        "name": "SITE19_C2",
+        "ram": "4GB",
         "units": 883,
         "speed": 18000000.0,
         "cores": 25,
         "BW_CPU": "3249GBps",
         "LAT_CPU": "81ns",
         "properties": [
-          {
-            "ram": "512GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -77590,15 +77590,15 @@
         ]
       },
       {
+        "name": "SITE19_C3",
+        "ram": "4GB",
         "units": 1812,
         "speed": 22000000.0,
         "cores": 48,
         "BW_CPU": "2737GBps",
         "LAT_CPU": "86ns",
         "properties": [
-          {
-            "ram": "4096GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -81628,21 +81628,21 @@
     ]
   },
   "Site20": {
+    "storage": "12751482708740",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12751482708740",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE20_C0",
+        "ram": "4GB",
         "units": 1907,
         "speed": 20000000.0,
         "cores": 16,
         "BW_CPU": "3180GBps",
         "LAT_CPU": "68ns",
         "properties": [
-          {
-            "ram": "4096GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -81668,15 +81668,15 @@
         ]
       },
       {
+        "name": "SITE20_C1",
+        "ram": "4GB",
         "units": 197,
         "speed": 26000000.0,
         "cores": 30,
         "BW_CPU": "2153GBps",
         "LAT_CPU": "61ns",
         "properties": [
-          {
-            "ram": "4096GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -85706,21 +85706,21 @@
     ]
   },
   "Site21": {
+    "storage": "12597273185950",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12597273185950",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE21_C0",
+        "ram": "4GB",
         "units": 1792,
         "speed": 24000000.0,
         "cores": 32,
         "BW_CPU": "2418GBps",
         "LAT_CPU": "95ns",
         "properties": [
-          {
-            "ram": "8192GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -85746,15 +85746,15 @@
         ]
       },
       {
+        "name": "SITE21_C1",
+        "ram": "4GB",
         "units": 1773,
         "speed": 28000000.0,
         "cores": 24,
         "BW_CPU": "2078GBps",
         "LAT_CPU": "91ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -89784,21 +89784,21 @@
     ]
   },
   "Site22": {
+    "storage": "12341888076910",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12341888076910",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE22_C0",
+        "ram": "4GB",
         "units": 1659,
         "speed": 30000000.0,
         "cores": 36,
         "BW_CPU": "3439GBps",
         "LAT_CPU": "55ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -89824,15 +89824,15 @@
         ]
       },
       {
+        "name": "SITE22_C1",
+        "ram": "4GB",
         "units": 1597,
         "speed": 32000000.0,
         "cores": 64,
         "BW_CPU": "3802GBps",
         "LAT_CPU": "51ns",
         "properties": [
-          {
-            "ram": "1024GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -89858,15 +89858,15 @@
         ]
       },
       {
+        "name": "SITE22_C2",
+        "ram": "4GB",
         "units": 1056,
         "speed": 22000000.0,
         "cores": 30,
         "BW_CPU": "2207GBps",
         "LAT_CPU": "76ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -93896,21 +93896,21 @@
     ]
   },
   "Site23": {
+    "storage": "13037275418060",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "13037275418060",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE23_C0",
+        "ram": "4GB",
         "units": 1328,
         "speed": 30000000.0,
         "cores": 30,
         "BW_CPU": "2665GBps",
         "LAT_CPU": "84ns",
         "properties": [
-          {
-            "ram": "2048GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -93936,15 +93936,15 @@
         ]
       },
       {
+        "name": "SITE23_C1",
+        "ram": "4GB",
         "units": 1434,
         "speed": 30000000.0,
         "cores": 48,
         "BW_CPU": "2435GBps",
         "LAT_CPU": "77ns",
         "properties": [
-          {
-            "ram": "1024GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -93970,15 +93970,15 @@
         ]
       },
       {
+        "name": "SITE23_C2",
+        "ram": "4GB",
         "units": 1408,
         "speed": 30000000.0,
         "cores": 16,
         "BW_CPU": "2761GBps",
         "LAT_CPU": "56ns",
         "properties": [
-          {
-            "ram": "2048GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -98008,21 +98008,21 @@
     ]
   },
   "Site24": {
+    "storage": "13010511008670",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "13010511008670",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE24_C0",
+        "ram": "4GB",
         "units": 1510,
         "speed": 28000000.0,
         "cores": 20,
         "BW_CPU": "3563GBps",
         "LAT_CPU": "48ns",
         "properties": [
-          {
-            "ram": "4096GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -98048,15 +98048,15 @@
         ]
       },
       {
+        "name": "SITE24_C1",
+        "ram": "4GB",
         "units": 1217,
         "speed": 28000000.0,
         "cores": 20,
         "BW_CPU": "2885GBps",
         "LAT_CPU": "62ns",
         "properties": [
-          {
-            "ram": "512GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -98082,15 +98082,15 @@
         ]
       },
       {
+        "name": "SITE24_C2",
+        "ram": "4GB",
         "units": 1255,
         "speed": 28000000.0,
         "cores": 48,
         "BW_CPU": "1990GBps",
         "LAT_CPU": "81ns",
         "properties": [
-          {
-            "ram": "2048GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -102120,21 +102120,21 @@
     ]
   },
   "Site25": {
+    "storage": "12537498655540",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12537498655540",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE25_C0",
+        "ram": "4GB",
         "units": 1731,
         "speed": 32000000.0,
         "cores": 30,
         "BW_CPU": "2608GBps",
         "LAT_CPU": "92ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -102160,15 +102160,15 @@
         ]
       },
       {
+        "name": "SITE25_C1",
+        "ram": "4GB",
         "units": 1591,
         "speed": 30000000.0,
         "cores": 25,
         "BW_CPU": "2351GBps",
         "LAT_CPU": "60ns",
         "properties": [
-          {
-            "ram": "4096GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -102194,15 +102194,15 @@
         ]
       },
       {
+        "name": "SITE25_C2",
+        "ram": "4GB",
         "units": 810,
         "speed": 18000000.0,
         "cores": 20,
         "BW_CPU": "2659GBps",
         "LAT_CPU": "53ns",
         "properties": [
-          {
-            "ram": "3072GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -106232,21 +106232,21 @@
     ]
   },
   "Site26": {
+    "storage": "12630511510320",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12630511510320",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE26_C0",
+        "ram": "4GB",
         "units": 1686,
         "speed": 18000000.0,
         "cores": 25,
         "BW_CPU": "3677GBps",
         "LAT_CPU": "100ns",
         "properties": [
-          {
-            "ram": "1024GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -106272,15 +106272,15 @@
         ]
       },
       {
+        "name": "SITE26_C1",
+        "ram": "4GB",
         "units": 858,
         "speed": 18000000.0,
         "cores": 32,
         "BW_CPU": "2086GBps",
         "LAT_CPU": "87ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -106306,15 +106306,15 @@
         ]
       },
       {
+        "name": "SITE26_C2",
+        "ram": "4GB",
         "units": 910,
         "speed": 30000000.0,
         "cores": 48,
         "BW_CPU": "1968GBps",
         "LAT_CPU": "55ns",
         "properties": [
-          {
-            "ram": "3072GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -110344,21 +110344,21 @@
     ]
   },
   "Site27": {
+    "storage": "12816042916900",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12816042916900",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE27_C0",
+        "ram": "4GB",
         "units": 1613,
         "speed": 22000000.0,
         "cores": 40,
         "BW_CPU": "2273GBps",
         "LAT_CPU": "47ns",
         "properties": [
-          {
-            "ram": "12288GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -110384,15 +110384,15 @@
         ]
       },
       {
+        "name": "SITE27_C1",
+        "ram": "4GB",
         "units": 755,
         "speed": 32000000.0,
         "cores": 64,
         "BW_CPU": "3146GBps",
         "LAT_CPU": "55ns",
         "properties": [
-          {
-            "ram": "4096GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -110418,15 +110418,15 @@
         ]
       },
       {
+        "name": "SITE27_C2",
+        "ram": "4GB",
         "units": 154,
         "speed": 28000000.0,
         "cores": 64,
         "BW_CPU": "2635GBps",
         "LAT_CPU": "56ns",
         "properties": [
-          {
-            "ram": "3072GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -114456,21 +114456,21 @@
     ]
   },
   "Site28": {
+    "storage": "12536973073140",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12536973073140",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE28_C0",
+        "ram": "4GB",
         "units": 333,
         "speed": 30000000.0,
         "cores": 16,
         "BW_CPU": "3645GBps",
         "LAT_CPU": "73ns",
         "properties": [
-          {
-            "ram": "6144GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -118500,21 +118500,21 @@
     ]
   },
   "Site29": {
+    "storage": "12949419396230",
     "SITE_PROPERTIES": {
-      "storage_capacity_bytes": "12949419396230",
       "file_count": "1000"
     },
     "CPUInfo": [
       {
+        "name": "SITE29_C0",
+        "ram": "4GB",
         "units": 1880,
         "speed": 22000000.0,
         "cores": 32,
         "BW_CPU": "3143GBps",
         "LAT_CPU": "54ns",
         "properties": [
-          {
-            "ram": "512GB"
-          }
+          {}
         ],
         "disks": [
           {
@@ -118540,15 +118540,15 @@
         ]
       },
       {
+        "name": "SITE29_C1",
+        "ram": "4GB",
         "units": 1523,
         "speed": 24000000.0,
         "cores": 36,
         "BW_CPU": "2574GBps",
         "LAT_CPU": "73ns",
         "properties": [
-          {
-            "ram": "4096GB"
-          }
+          {}
         ],
         "disks": [
           {

@@ -5,12 +5,13 @@ server=get_server()
 while True:
     message=server.receive_json()
     if message is None: continue
-    print("Comminication from Grid: ",message)
+    print("Communication from Grid: ",message)
     request_type = message.get("request_type")
+    if(request_type=="end_simulation"): break
     job_id = message.get("job_id")
     assert(request_type == "assign_job")
     reply ={"site_decision": schedule(job_id)}
-    print("Comminication to Grid: ",reply)
+    print("Communication to Grid: ",reply)
     server.send_json(reply)
 
 
