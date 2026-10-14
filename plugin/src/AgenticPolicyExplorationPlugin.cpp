@@ -2,6 +2,7 @@
 #include "dispatcher.h"
 #include "workload_manager.h"
 #include "output.h"
+#include "policy.h"
 
 class AgenticPolicyExplorationPlugin : public CGSim::Plugin {
 public:
@@ -10,22 +11,10 @@ public:
     void setWorkload(CGSim::JobQueue& jobs) final override { wm->setWorkload(jobs); }
     void assignJob(CGSim::Job* job) final override { di->assignJob(job); }
 
-    void onSimulationStart() final override { ou->onSimulationStart(); }
-    void onSimulationEnd() final override { ou->onSimulationEnd(); di->onSimulationEnd(); }
+    void onSimulationStart() final override { po->onSimulationStart(); }
+    void onSimulationEnd() final override { po->onSimulationEnd(); }
 
-    void onJobExecutionStart(CGSim::Job* j) final override { ou->onJobExecutionStart(j); }
     void onJobExecutionEnd(CGSim::Job* j) final override { ou->onJobExecutionEnd(j); }
-    void onJobTransferStart(CGSim::Job* j) final override { ou->onJobTransferStart(j); }
-    void onJobTransferEnd(CGSim::Job* j) final override { ou->onJobTransferEnd(j); }
-
-    void onFileTransferStart(CGSim::Job* j,const std::string& f,unsigned long long s,const std::string& src,const std::string& dst) final override { ou->onFileTransferStart(j,f,s,src,dst); }
-    void onFileTransferEnd(CGSim::Job* j,const std::string& f,unsigned long long s,const std::string& src,const std::string& dst) final override { ou->onFileTransferEnd(j,f,s,src,dst); }
-
-    void onFileReadStart(CGSim::Job* j,const std::string& f,unsigned long long s) final override { ou->onFileReadStart(j,f,s); }
-    void onFileReadEnd(CGSim::Job* j,const std::string& f,unsigned long long s) final override { ou->onFileReadEnd(j,f,s); }
-    void onFileWriteStart(CGSim::Job* j,const std::string& f,unsigned long long s) final override { ou->onFileWriteStart(j,f,s); }
-    void onFileWriteEnd(CGSim::Job* j,const std::string& f,unsigned long long s) final override { ou->onFileWriteEnd(j,f,s); }
-
     void onUserFileTransferStart(const std::string& f,unsigned long long s,const std::string& src,const std::string& dst,const std::string& p) final override { ou->onUserFileTransferStart(f,s,src,dst,p); }
     void onUserFileTransferEnd(const std::string& f,unsigned long long s,const std::string& src,const std::string& dst,const std::string& p) final override { ou->onUserFileTransferEnd(f,s,src,dst,p); }
 
@@ -39,6 +28,7 @@ private:
     std::unique_ptr<DISPATCHER> di = std::make_unique<DISPATCHER>();
     std::unique_ptr<WORKLOAD_MANAGER> wm = std::make_unique<WORKLOAD_MANAGER>();
     std::shared_ptr<OUTPUT> ou = std::make_unique<OUTPUT>();
+    std::shared_ptr<POLICY> po = std::make_unique<POLICY>();
 };
 
 extern "C" AgenticPolicyExplorationPlugin* createAgenticPolicyExplorationPlugin() {

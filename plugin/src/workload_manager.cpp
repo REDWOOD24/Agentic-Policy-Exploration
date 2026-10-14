@@ -1,32 +1,27 @@
 #include "workload_manager.h"
-#include <random>
-
-long long WORKLOAD_MANAGER::random_number(long long min, long long max)
-{
-    static std::mt19937_64 gen(std::random_device{}());
-    return std::uniform_int_distribution<long long>(min, max)(gen);
-}
 
 void WORKLOAD_MANAGER::setWorkload(CGSim::JobQueue& jobs)
 {
     long max_jobs = std::stol(CGSim::GlobalManagers::get_resource_manager()->get_custom_parameter("Num_of_Jobs"));
+    std::string jobs_file = CGSim::GlobalManagers::get_resource_manager()->get_custom_parameter("jobs_file");
+    std::ifstream file(jobs_file);
+    nlohmann::json job_data = nlohmann::json::parse(file);
+    int num_of_jobs = 0;
 
-    for (long i = 1; i <= max_jobs; ++i)
+    for (const auto& j : job_data)
     {
+        if (max_jobs > 0 && num_of_jobs >= max_jobs) break;
         auto* job = new CGSim::Job();
-        std::string id = std::to_string(i);
 
+        std::string id = j["id"].get<std::string>();
         job->set_id(id);
-        job->set_creation_time(random_number(0, 30));
-        job->set_cores(random_number(1, 8));
-        job->set_flops(random_number(1000000, 2000000));
-
-        auto number_of_input_files = random_number(1, 5);
-        for (int j = 0; j < number_of_input_files; ++j) job->add_input_file(std::to_string(random_number(0, 29999)));
-
-        std::string output = "output_" + id + "_0.root";
-        job->add_output_file(output, std::to_string(random_number(200000000000, 300000000000)));
+        job->set_creation_time(j["creation_time"].get<double>());
+        job->set_cores(j["cores"].get<int>());
+        job->set_flops(j["flops"].get<double>());
+        for (const auto& input : j["input_files"]) job->add_input_file(input.get<std::string>());
+        for (const auto& output : j["output_files"]) job->add_output_file(output["name"].get<std::string>(), std::to_string(output["size"].get<unsigned long long>()));
 
         jobs.push(job);
+        ++num_of_jobs;
     }
 }

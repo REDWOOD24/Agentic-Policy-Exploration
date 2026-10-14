@@ -6,7 +6,8 @@
     "Limited_Sites": [],
     "Custom_Parameters":
     {
-	"Num_of_Jobs": "20",
+    "jobs_file": "jobs.json",
+	"Num_of_Jobs": "-1",
 	"output_file": "../output/events.db"
     }
 }

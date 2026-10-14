@@ -14,10 +14,10 @@ client = OpenAI(
 )
 
 model="gpt-oss-120b"
-functions={"most_data_located":most_data_located}
-tools=[{"type":"function","function":{"name":"most_data_located","description":"Return the site holding most job data.","parameters":{"type":"object","properties":{},"additionalProperties":False}}}]
+functions={"calculate_storage_imbalance":most_data_located}
+tools=[{"type":"function","function":{"name":"calculate_storage_imbalance","description":"Returns a measure of storage imbalance on the grid. Between 0-1 with 0 being maximum balance and 1 being maximum imbalance.","parameters":{"type":"object","properties":{},"additionalProperties":False}}}]
  
-def schedule(job_id):
+def pick_policy():
     messages=[{"role":"system","content":SYSTEM_PROMPT},{"role":"user","content": "Schedule job: " + str(job_id)}]
     r=client.chat.completions.create(model=model,messages=messages,tools=tools,tool_choice="auto")
     m=r.choices[0].message
@@ -29,4 +29,4 @@ def schedule(job_id):
             messages.append({"role":"tool","tool_call_id":x.id,"content":result})
         r=client.chat.completions.create(model=model,messages=messages,tools=tools,tool_choice="none")
 
-    return json.loads(r.choices[0].message.content)["site_decision"]
+    return json.loads(r.choices[0].message.content)["decision"]

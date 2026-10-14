@@ -4,6 +4,7 @@
 #include "CGSim.h"
 #include <fstream>
 #include <sstream>
+#include <nlohmann/json.hpp>
 
 class WORKLOAD_MANAGER {
 

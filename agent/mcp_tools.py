@@ -2,8 +2,8 @@ from server import get_server
 
 server=get_server()
 
-def most_data_located():
-    request = {"request_type":"tool", "tool_type":"most_data_located"}
+def calculate_storage_imbalance():
+    request = {"request_type":"tool", "tool_type":"calculate_storage_imbalance"}
     print("Communication to Grid: ",request)
     server.send_json(request)
     response = server.receive_json()

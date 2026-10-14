@@ -32,40 +32,18 @@ std::string DISPATCHER::most_data_located(CGSim::Job* j)
 
 void DISPATCHER::findBestSite(CGSim::Job* j)
 {
-    socket.sendJson({
-        {"request_type","assign_job"},
-        {"job_id",j->get_id()},
-        {"expect_reply",true}
-    });
-
-    while (true) {
-        SocketClient::json message;
-        socket.receiveJson(message);
-
-        if (message.contains("site_decision") && message["site_decision"].is_string()) {
-            j->set_site(message["site_decision"].get<std::string>());
-            break;
-        }
-
-        if (message["request_type"] == "tool") {
-            if (message["tool_type"] == "most_data_located")
-                socket.sendJson({
-                    {"response_type","tool"},
-                    {"tool_result",most_data_located(j)},
-                    {"expect_reply",true}
-                });
-            else throw std::runtime_error("Currently suppported tools are {'most_data_located'}");
-        }
-    }
+    std::string site = most_data_located(j);
+    if(!site.empty()) j->set_site(site);
+    else throw std::runtime_error("Could not find most data located for given job");
 }
 
 void DISPATCHER::findAvailableCPU(CGSim::Job* j)
 {
     if (j->get_site().empty()) return;
-
     auto* site = CGSim::GlobalManagers::get_resource_manager()->get_site(j->get_site());
 
-    for (auto* cpu : site->get_cpus()) {
+    for (auto* cpu : site->get_cpus()) 
+    {
         if (cpu->get_cores_available() < j->get_cores()) continue;
         j->set_cpu(cpu->get_name());
         j->set_disk(cpu->get_disks()[0]->get_name());
