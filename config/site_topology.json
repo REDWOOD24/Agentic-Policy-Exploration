@@ -39,7 +39,7 @@
     "files": []
   },
   "Site1": {
-    "storage": "100TB",
+    "storage": "10000TB",
     "SITE_PROPERTIES": {},
     "CPUInfo": [
       {
@@ -78,7 +78,7 @@
     "files": []
   },
   "Site2": {
-    "storage": "100TB",
+    "storage": "10000TB",
     "SITE_PROPERTIES": {},
     "CPUInfo": [
       {
@@ -117,7 +117,7 @@
     "files": []
   },
   "Site3": {
-    "storage": "100TB",
+    "storage": "10000TB",
     "SITE_PROPERTIES": {},
     "CPUInfo": [
       {
@@ -156,7 +156,7 @@
     "files": []
   },
   "Site4": {
-    "storage": "100TB",
+    "storage": "10000TB",
     "SITE_PROPERTIES": {},
     "CPUInfo": [
       {

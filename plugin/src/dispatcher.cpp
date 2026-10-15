@@ -32,9 +32,12 @@ std::string DISPATCHER::most_data_located(CGSim::Job* j)
 
 void DISPATCHER::findBestSite(CGSim::Job* j)
 {
-    std::string site = most_data_located(j);
-    if(!site.empty()) j->set_site(site);
-    else throw std::runtime_error("Could not find most data located for given job");
+    //std::string site = most_data_located(j);
+    //if(!site.empty()) j->set_site(site);
+    //else throw std::runtime_error("Could not find most data located for given job");
+
+    std::string site = "Site" + std::to_string(1 + std::rand() % 4);
+    j->set_site(site);
 }
 
 void DISPATCHER::findAvailableCPU(CGSim::Job* j)

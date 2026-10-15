@@ -1,5 +1,5 @@
 from server import get_server
-from agent import schedule
+from agent import pick_policies
 server=get_server()
 
 while True:
@@ -8,9 +8,8 @@ while True:
     print("Communication from Grid: ",message)
     request_type = message.get("request_type")
     if(request_type=="end_simulation"): break
-    job_id = message.get("job_id")
-    assert(request_type == "assign_job")
-    reply ={"site_decision": schedule(job_id)}
+    assert(request_type == "pick_data_management_policy")
+    reply ={"decision": pick_policies()}
     print("Communication to Grid: ",reply)
     server.send_json(reply)
 

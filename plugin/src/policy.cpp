@@ -11,6 +11,7 @@ void POLICY::onSimulationEnd()
 
 void POLICY::onSimulationStart()
 {
+    for(int i = 0; i <= 1000001; i++) fm->create("input_"+std::to_string(i), 1000 + std::rand() % 99001, "Site0");
     socket.connectSocket();
     pm->addPolicy(agentic_decision_policy());
 }
@@ -18,7 +19,7 @@ void POLICY::onSimulationStart()
 CGSim::Policy* POLICY::simple_data_replication_policy()
 {
     auto* p             = new CGSim::Policy();
-    p->name             = "Simple Data Replication Policy";
+    p->name             = "simple_data_replication";
     p->start_time       = CGSim::Utilities::get_simulation_clock() < 0.0 ? 0.0 : CGSim::Utilities::get_simulation_clock();
     p->repeat_interval  = CGSim::Utilities::parse_units_time("1w");
     p->callback         = [this](){execute_data_replication();};
@@ -41,11 +42,12 @@ std::string POLICY::calculate_storage_imbalance()
 
 void POLICY::execute_data_replication()
 {
-    for(auto& [srcName,src]:rm->get_all_sites())
+    for(auto& srcName:rm->get_list_of_sites())
     {
         for(auto& dstName:rm->get_list_of_sites())
         {
             if(dstName==srcName) continue;
+            auto* src=rm->get_site(srcName);
             auto* dst=rm->get_site(dstName);
             size_t N = 50;
             size_t copied=0;
@@ -54,7 +56,7 @@ void POLICY::execute_data_replication()
                 if(copied>=N) break;
                 if(fm->exists(fileName,dstName)) continue;
                 if(dst->get_incoming_file_transfers().count(fileName)) continue;
-                if(dst->get_available_storage() > file->get_size()) continue;
+                if(dst->get_available_storage() < file->get_size()) continue;
                 fm->transfer(fileName,srcName,dstName,CGSim::FileTransferDecisionMode::COPY,"grid-replication");
                 ++copied;
             }
@@ -79,7 +81,6 @@ void POLICY::call_agent()
     socket.sendJson
     ({
         {"request_type","pick_data_management_policy"},
-        {"policies_available","simple_data_replication"},
         {"expect_reply",true}
     });
 
